@@ -1,0 +1,35 @@
+```
+└── 📁email
+    └── 📁account related
+        └── account_approval.html
+        └── account_reactivation.html
+        └── account_rejection.html
+        └── account_suspension.html
+        └── kyc_submission.html
+        └── signup_otp.html
+        └── welcome_email.html
+    └── 📁closing
+        └── account_closure_request.html
+        └── account_closure.html
+    └── 📁compliance and regulatory
+        └── regulatory_update.html
+    └── 📁engagement
+        └── feature_announcement.html
+        └── greetings.html
+    └── 📁security and support
+        └── 2fa_authentication.html
+        └── password_reset.html
+        └── support_resolution.html
+        └── support_ticket.html
+        └── suspicious_login.html
+    └── 📁transactions
+        └── auto_squareoff.html
+        └── contract_note.html
+        └── fund_deposit.html
+        └── fund_withdrawal.html
+        └── ledger_statement.html
+        └── margin_call.html
+        └── margin_pledge.html
+        └── margin_statement.html
+        └── margin_unpledge.html
+```
