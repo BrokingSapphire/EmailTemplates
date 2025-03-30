@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="format-detection" content="telephone=no,date=no,address=no,email=no,url=no">
+    <title>Contract Note - Sapphire Broking</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --primary: #064D51;
+            --primary-light: rgba(6, 77, 81, 0.1);
+            --accent: #FFD62D;
+            --accent-light: rgba(255, 214, 45, 0.2);
+            --background: #EAFBF0;
+            --white: #FFFFFF;
+            --text-dark: #1A2B2C;
+            --text-medium: #415657;
+            --text-light: #6E7878;
+            --border-light: #E5E7EB;
+            --success: #16A34A;
+            --success-light: rgba(22, 163, 74, 0.1);
+            --warning: #F59E0B;
+            --warning-light: rgba(245, 158, 11, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background);
+            color: var(--text-dark);
+            line-height: 1.6;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .email-wrapper {
+            background-color: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+        }
+        
+        .email-header {
+            background-color: var(--primary);
+            padding: 30px 40px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .logo {
+            max-width: 150px;
+            height: auto;
+        }
+        
+        .header-accent {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 10% 20%, rgba(255, 214, 45, 0.3) 0%, transparent 30%);
+        }
+        
+        .email-body {
+            padding: 40px;
+        }
+        
+        .email-footer {
+            background-color: var(--primary-light);
+            padding: 30px;
+            text-align: center;
+            font-size: 13px;
+            color: var(--text-medium);
+        }
+        
+        .social-links {
+            margin: 25px 0;
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+        }
+        
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            color: var(--white);
+            transition: all 0.2s ease;
+        }
+        
+        .disclaimer {
+            font-size: 11px;
+            color: var(--text-light);
+            margin-top: 25px;
+            padding-top: 25px;
+            border-top: 1px solid var(--border-light);
+        }
+        
+        .button {
+            display: inline-block;
+            padding: 14px 28px;
+            background-color: var(--primary);
+            color: var(--white) !important;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(6, 77, 81, 0.2);
+        }
+        
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(6, 77, 81, 0.25);
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--primary);
+            margin-bottom: 16px;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+        
+        h1 {
+            font-size: 28px;
+            letter-spacing: -0.5px;
+        }
+        
+        h2 {
+            font-size: 24px;
+            letter-spacing: -0.3px;
+        }
+        
+        h3 {
+            font-size: 20px;
+        }
+        
+        p {
+            margin-bottom: 16px;
+            color: var(--text-medium);
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+        
+        .section-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+        
+        .section-subtitle {
+            font-size: 16px;
+            color: var(--text-medium);
+        }
+        
+        .client-details {
+            background-color: var(--primary-light);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 32px;
+        }
+        
+        .detail-row {
+            display: flex;
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border-light);
+        }
+        
+        .detail-row:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .detail-label {
+            flex: 1;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+        
+        .detail-value {
+            flex: 2;
+            text-align: right;
+        }
+        
+        .trade-summary {
+            background-color: var(--white);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 32px 0;
+            border: 1px solid var(--border-light);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+        }
+        
+        .trade-summary-title {
+            text-align: center;
+            margin-bottom: 16px;
+            color: var(--primary);
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .trade-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 16px;
+        }
+        
+        .trade-table th {
+            text-align: left;
+            padding: 12px;
+            background-color: var(--primary-light);
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 14px;
+        }
+        
+        .trade-table td {
+            padding: 12px;
+            border-bottom: 1px solid var(--border-light);
+            font-size: 14px;
+        }
+        
+        .trade-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .profit {
+            color: var(--success);
+            font-weight: 600;
+        }
+        
+        .loss {
+            color: #DC2626;
+            font-weight: 600;
+        }
+        
+        .total-row {
+            background-color: var(--primary-light);
+            font-weight: 600;
+        }
+        
+        .charges-box {
+            background-color: var(--white);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 32px 0;
+            border: 1px solid var(--border-light);
+        }
+        
+        .charges-title {
+            margin-bottom: 16px;
+            color: var(--primary);
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .charges-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .charges-table td {
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border-light);
+            font-size: 14px;
+        }
+        
+        .charges-table tr:last-child td {
+            border-bottom: none;
+            font-weight: 600;
+        }
+        
+        .charges-table td:last-child {
+            text-align: right;
+        }
+        
+        .net-amount {
+            background-color: var(--success-light);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            margin: 32px 0;
+        }
+        
+        .net-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+        }
+        
+        .net-value {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--success);
+        }
+        
+        .note-box {
+            background-color: var(--accent-light);
+            border-radius: 12px;
+            padding: 16px;
+            margin-top: 32px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .note-icon {
+            flex-shrink: 0;
+            margin-right: 12px;
+            font-size: 24px;
+            color: var(--accent);
+        }
+        
+        .note-content {
+            font-size: 14px;
+            color: var(--text-medium);
+        }
+        
+        .cta-container {
+            text-align: center;
+            margin: 32px 0;
+        }
+        
+        /* Mobile Optimization */
+        @media (max-width: 550px) {
+            .email-body {
+                padding: 30px 24px;
+            }
+            
+            .section-title {
+                font-size: 24px;
+            }
+            
+            .trade-table {
+                display: block;
+                overflow-x: auto;
+            }
+            
+            h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="email-wrapper">
+            <!-- Header with Logo -->
+            <div class="email-header">
+                <div class="header-accent"></div>
+                <!-- In production, replace with your actual logo URL -->
+                <img src="/api/placeholder/150/50" alt="Sapphire Broking" class="logo" />
+            </div>
+            
+            <!-- Email Body -->
+            <div class="email-body">
+                <div class="section-header">
+                    <h1 class="section-title">Contract Note</h1>
+                    <p class="section-subtitle">Trade Date: [Trade Date]</p>
+                </div>
+                
+                <p>Dear <strong>[Client Name]</strong>,</p>
+                
+                <p>Please find below the contract note for your trades executed on [Trade Date]. This document serves as an official record of your transactions.</p>
+                
+                <div class="client-details">
+                    <div class="detail-row">
+                        <div class="detail-label">Client ID</div>
+                        <div class="detail-value">[Client ID]</div>
+                    </div>
+                    
+                    <div class="detail-row">
+                        <div class="detail-label">Trading Code</div>
+                        <div class="detail-value">[Trading Code]</div>
+                    </div>
+                    
+                    <div class="detail-row">
+                        <div class="detail-label">PAN</div>
+                        <div class="detail-value">[PAN Number]</div>
+                    </div>
+                    
+                    <div class="detail-row">
+                        <div class="detail-label">Settlement No.</div>
+                        <div class="detail-value">[Settlement Number]</div>
+                    </div>
+                    
+                    <div class="detail-row">
+                        <div class="detail-label">Contract Note No.</div>
+                        <div class="detail-value">[Contract Note Number]</div>
+                    </div>
+                </div>
+                
+                <div class="trade-summary">
+                    <h3 class="trade-summary-title">Trade Summary</h3>
+                    
+                    <table class="trade-table">
+                        <thead>
+                            <tr>
+                                <th>Symbol</th>
+                                <th>Type</th>
+                                <th>Qty</th>
+                                <th>Price</th>
+                                <th>Value</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>RELIANCE</td>
+                                <td>BUY</td>
+                                <td>10</td>
+                                <td>₹2,540.00</td>
+                                <td>₹25,400.00</td>
+                            </tr>
+                            <tr>
+                                <td>HDFCBANK</td>
+                                <td>SELL</td>
+                                <td>15</td>
+                                <td>₹1,650.00</td>
+                                <td>₹24,750.00</td>
+                            </tr>
+                            <tr>
+                                <td>INFY</td>
+                                <td>BUY</td>
+                                <td>8</td>
+                                <td>₹1,820.00</td>
+                                <td>₹14,560.00</td>
+                            </tr>
+                            <tr class="total-row">
+                                <td colspan="4">Total</td>
+                                <td>₹64,710.00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="charges-box">
+                    <h3 class="charges-title">Charges & Taxes</h3>
+                    
+                    <table class="charges-table">
+                        <tr>
+                            <td>Brokerage</td>
+                            <td>₹64.71</td>
+                        </tr>
+                        <tr>
+                            <td>Securities Transaction Tax (STT)</td>
+                            <td>₹64.71</td>
+                        </tr>
+                        <tr>
+                            <td>Exchange Transaction Charges</td>
+                            <td>₹9.71</td>
+                        </tr>
+                        <tr>
+                            <td>SEBI Turnover Fees</td>
+                            <td>₹3.24</td>
+                        </tr>
+                        <tr>
+                            <td>Stamp Duty</td>
+                            <td>₹6.47</td>
+                        </tr>
+                        <tr>
+                            <td>GST (18%)</td>
+                            <td>₹11.65</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Total Charges</strong></td>
+                            <td><strong>₹160.49</strong></td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <div class="net-amount">
+                    <div class="net-title">Net Amount Payable</div>
+                    <div class="net-value">₹64,870.49</div>
+                </div>
+                
+                <div class="cta-container">
+                    <a href="#" class="button">DOWNLOAD PDF</a>
+                </div>
+                
+                <div class="note-box">
+                    <div class="note-icon">ℹ️</div>
+                    <div class="note-content">
+                        <p style="margin-bottom: 8px;"><strong>Note:</strong></p>
+                        <p style="margin-bottom: 0;">This is a system-generated contract note and does not require a physical signature. If you find any discrepancy in this contract note, please report it to us within 24 hours of receipt.</p>
+                    </div>
+                </div>
+                
+                <p style="text-align: center; margin-top: 32px; font-size: 14px;">For any queries regarding this contract note, please contact our support team at <strong>support@sapphirebroking.com</strong> or call <strong>+91 XXXX XXX XXX</strong>.</p>
+            </div>
+            
+            <!-- Footer -->
+            <div class="email-footer">
+                <p><strong>Sapphire Broking</strong><br>
+                123 Financial District, Suite 789<br>
+                Mumbai, Maharashtra 400001<br>
+                Customer Support: +91 XXXX XXX XXX</p>
+                
+                <div class="social-links">
+                    <!-- Placeholder social icons -->
+                    <div class="social-icon">f</div>
+                    <div class="social-icon">t</div>
+                    <div class="social-icon">in</div>
+                    <div class="social-icon">ig</div>
+                </div>
+                
+                <p>© 2025 Sapphire Broking. All Rights Reserved.</p>
+                
+                <div class="disclaimer">
+                    <p>DISCLAIMER: Investments in securities market are subject to market risks. Read all the related documents carefully before investing. Registration granted by SEBI, membership of BSE, NSE, and MCX-SX, and registration of the DP with SEBI does not guarantee quality of services. Details of compliance officer: Name: Compliance Officer, Email: compliance@sapphirebroking.com, Phone: +91 XXXX XXX XXX</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
