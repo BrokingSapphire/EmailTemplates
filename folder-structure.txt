@@ -1,5 +1,4 @@
 ```
-└── 📁email
     └── 📁account related
         └── account_approval.html
         └── account_reactivation.html
