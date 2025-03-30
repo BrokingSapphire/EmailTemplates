@@ -19,6 +19,7 @@
         └── christmas.html
         └── diwali_laxmi_pujan.html
         └── dussehra.html
+        └── gandhi_jayanti.html
         └── ganesh_chaturthi.html
         └── good_friday.html
         └── guru_nanak_jayanti.html
@@ -31,7 +32,6 @@
         └── ram_navami.html
         └── ramzan_eid.html
         └── republic_day.html
-        └── gandhi_jayanti.html
     └── 📁otp
         └── signup_otp.html
         └── login_otp.html
