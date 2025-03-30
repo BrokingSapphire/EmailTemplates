@@ -6,7 +6,7 @@
         └── account_rejection.html
         └── account_suspension.html
         └── kyc_submission.html
-        └── signup_otp.html
+        └── 
         └── welcome_email.html
     └── 📁closing
         └── account_closure_request.html
@@ -16,6 +16,9 @@
     └── 📁engagement
         └── feature_announcement.html
         └── greetings.html
+    └── 📁engagement
+        └── signup_otp.html
+        └── login_otp.html
     └── 📁security and support
         └── 2fa_authentication.html
         └── password_reset.html
