@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="format-detection" content="telephone=no,date=no,address=no,email=no,url=no">
+    <title>Margin Unpledge Confirmation - Sapphire Broking</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --primary: #064D51;
+            --primary-light: rgba(6, 77, 81, 0.1);
+            --accent: #FFD62D;
+            --accent-light: rgba(255, 214, 45, 0.2);
+            --background: #EAFBF0;
+            --white: #FFFFFF;
+            --text-dark: #1A2B2C;
+            --text-medium: #415657;
+            --text-light: #6E7878;
+            --border-light: #E5E7EB;
+            --success: #16A34A;
+            --success-light: rgba(22, 163, 74, 0.1);
+            --warning: #F59E0B;
+            --warning-light: rgba(245, 158, 11, 0.1);
+            --info: #0EA5E9;
+            --info-light: rgba(14, 165, 233, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background);
+            color: var(--text-dark);
+            line-height: 1.6;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .email-wrapper {
+            background-color: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+        }
+        
+        .email-header {
+            background-color: var(--primary);
+            padding: 30px 40px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .logo {
+            max-width: 150px;
+            height: auto;
+        }
+        
+        .header-accent {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 10% 20%, rgba(255, 214, 45, 0.3) 0%, transparent 30%);
+        }
+        
+        .email-body {
+            padding: 40px;
+        }
+        
+        .email-footer {
+            background-color: var(--primary-light);
+            padding: 30px;
+            text-align: center;
+            font-size: 13px;
+            color: var(--text-medium);
+        }
+        
+        .social-links {
+            margin: 25px 0;
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+        }
+        
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            color: var(--white);
+            transition: all 0.2s ease;
+        }
+        
+        .disclaimer {
+            font-size: 11px;
+            color: var(--text-light);
+            margin-top: 25px;
+            padding-top: 25px;
+            border-top: 1px solid var(--border-light);
+        }
+        
+        .button {
+            display: inline-block;
+            padding: 14px 28px;
+            background-color: var(--primary);
+            color: var(--white) !important;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(6, 77, 81, 0.2);
+        }
+        
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(6, 77, 81, 0.25);
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--primary);
+            margin-bottom: 16px;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+        
+        h1 {
+            font-size: 28px;
+            letter-spacing: -0.5px;
+        }
+        
+        h2 {
+            font-size: 24px;
+            letter-spacing: -0.3px;
+        }
+        
+        h3 {
+            font-size: 20px;
+        }
+        
+        p {
+            margin-bottom: 16px;
+            color: var(--text-medium);
+        }
+        
+        .confirmation-banner {
+            margin: 0 0 32px 0;
+            position: relative;
+            text-align: center;
+            background-color: var(--success-light);
+            padding: 24px;
+            border-radius: 12px;
+        }
+        
+        .confirmation-icon {
+            font-size: 48px;
+            color: var(--success);
+            margin-bottom: 16px;
+        }
+        
+        .confirmation-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--success);
+            margin: 0 0 12px 0;
+            text-align: center;
+        }
+        
+        .confirmation-subtitle {
+            font-size: 18px;
+            color: var(--text-medium);
+            margin-bottom: 0;
+            text-align: center;
+        }
+        
+        .unpledge-details {
+            background-color: var(--white);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 32px 0;
+            border: 1px solid var(--border-light);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+        }
+        
+        .unpledge-details-title {
+            text-align: center;
+            margin-bottom: 16px;
+            color: var(--primary);
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .detail-row {
+            display: flex;
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border-light);
+        }
+        
+        .detail-row:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .detail-label {
+            flex: 1;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+        
+        .detail-value {
+            flex: 2;
+            text-align: right;
+        }
+        
+        .status-completed {
+            color: var(--success);
+            font-weight: 600;
+        }
+        
+        .unpledged-securities {
+            margin: 32px 0;
+        }
+        
+        .unpledged-securities-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 16px;
+        }
+        
+        .securities-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 16px;
+        }
+        
+        .securities-table th {
+            background-color: var(--primary-light);
+            color: var(--primary);
+            font-weight: 600;
+            text-align: left;
+            padding: 12px;
+            font-size: 14px;
+        }
+        
+        .securities-table td {
+            padding: 12px;
+            border-bottom: 1px solid var(--border-light);
+            font-size: 14px;
+        }
+        
+        .securities-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .table-total {
+            font-weight: 600;
+            background-color: var(--primary-light);
+        }
+        
+        .margin-impact {
+            background-color: var(--warning-light);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 32px 0;
+        }
+        
+        .margin-impact-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 16px;
+            text-align: center;
+        }
+        
+        .impact-summary {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+        
+        .impact-item {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 16px;
+            text-align: center;
+        }
+        
+        .impact-label {
+            font-size: 14px;
+            color: var(--text-medium);
+            margin-bottom: 8px;
+        }
+        
+        .impact-value {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+        
+        .impact-value.decreased {
+            color: var(--warning);
+        }
+        
+        .available-actions {
+            background-color: var(--info-light);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 32px 0;
+        }
+        
+        .available-actions-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 16px;
+            text-align: center;
+        }
+        
+        .action-item {
+            display: flex;
+            margin-bottom: 16px;
+        }
+        
+        .action-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .action-icon {
+            flex-shrink: 0;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background-color: var(--info);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            margin-right: 16px;
+            margin-top: 4px;
+            font-size: 14px;
+        }
+        
+        .action-content {
+            flex-grow: 1;
+        }
+        
+        .action-title {
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 4px;
+        }
+        
+        .note-box {
+            background-color: var(--accent-light);
+            border-radius: 12px;
+            padding: 16px;
+            margin-top: 32px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .note-icon {
+            flex-shrink: 0;
+            margin-right: 12px;
+            font-size: 24px;
+            color: var(--accent);
+        }
+        
+        .note-content {
+            font-size: 14px;
+            color: var(--text-medium);
+        }
+        
+        .cta-container {
+            text-align: center;
+            margin: 32px 0;
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+        }
+        
+        .cta-container .button {
+            flex: 1;
+        }
+        
+        /* Mobile Optimization */
+        @media (max-width: 550px) {
+            .email-body {
+                padding: 30px 24px;
+            }
+            
+            .confirmation-title {
+                font-size: 24px;
+            }
+            
+            .impact-summary {
+                grid-template-columns: 1fr;
+            }
+            
+            .securities-table {
+                display: block;
+                overflow-x: auto;
+            }
+            
+            .cta-container {
+                flex-direction: column;
+            }
+            
+            h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="email-wrapper">
+            <!-- Header with Logo -->
+            <div class="email-header">
+                <div class="header-accent"></div>
+                <!-- In production, replace with your actual logo URL -->
+                <img src="/api/placeholder/150/50" alt="Sapphire Broking" class="logo" />
+            </div>
+            
+            <!-- Email Body -->
+            <div class="email-body">
+                <div class="confirmation-banner">
+                    <div class="confirmation-icon">✓</div>
+                    <h1 class="confirmation-title">Unpledge Request Confirmed</h1>
+                    <p class="confirmation-subtitle">Your securities have been successfully released</p>
+                </div>
+                
+                <p>Dear <strong>[Client Name]</strong>,</p>
+                
+                <p>This is to confirm that your request to unpledge securities has been successfully processed. The securities are now released from pledge and are freely available in your demat account.</p>
+                
+                <div class="unpledge-details">
+                    <h3 class="unpledge-details-title">Unpledge Details</h3>
+                    
+                    <div class="detail-row">
+                        <div class="detail-label">Client ID</div>
+                        <div class="detail-value">[Client ID]</div>
+                    </div>
+                    
+                    <div class="detail-row">
+                        <div class="detail-label">Unpledge Request ID</div>
+                        <div class="detail-value">[Unpledge Request ID]</div>
+                    </div>
+                    
+                    <div class="detail-row">
+                        <div class="detail-label">Request Date</div>
+                        <div class="detail-value">[Request Date]</div>
+                    </div>
+                    
+                    <div class="detail-row">
+                        <div class="detail-label">Confirmation Date</div>
+                        <div class="detail-value">[Confirmation Date]</div>
+                    </div>
+                    
+                    <div class="detail-row">
+                        <div class="detail-label">Total Securities Unpledged</div>
+                        <div class="detail-value">[Number of Securities] Scrips</div>
+                    </div>
+                    
+                    <div class="detail-row">
+                        <div class="detail-label">Total Value</div>
+                        <div class="detail-value">₹[Total Value]</div>
+                    </div>
+                    
+                    <div class="detail-row">
+                        <div class="detail-label">Status</div>
+                        <div class="detail-value status-completed">Completed</div>
+                    </div>
+                </div>
+                
+                <div class="unpledged-securities">
+                    <h3 class="unpledged-securities-title">Securities Released from Pledge</h3>
+                    
+                    <table class="securities-table">
+                        <thead>
+                            <tr>
+                                <th>Security</th>
+                                <th>ISIN</th>
+                                <th>Quantity</th>
+                                <th>Value (₹)</th>
+                                <th>Collateral Value (₹)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Sample securities - replace with actual data -->
+                            <tr>
+                                <td>Reliance Industries Ltd</td>
+                                <td>INE002A01018</td>
+                                <td>50</td>
+                                <td>122,500.00</td>
+                                <td>98,000.00</td>
+                            </tr>
+                            <tr>
+                                <td>TCS Ltd</td>
+                                <td>INE467B01029</td>
+                                <td>25</td>
+                                <td>85,625.00</td>
+                                <td>68,500.00</td>
+                            </tr>
+                            <tr class="table-total">
+                                <td colspan="3"><strong>Total</strong></td>
+                                <td><strong>208,125.00</strong></td>
+                                <td><strong>166,500.00</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="margin-impact">
+                    <h3 class="margin-impact-title">Impact on Your Margin</h3>
+                    
+                    <div class="impact-summary">
+                        <div class="impact-item">
+                            <div class="impact-label">Previous Available Margin</div>
+                            <div class="impact-value">₹450,000.00</div>
+                        </div>
+                        
+                        <div class="impact-item">
+                            <div class="impact-label">New Available Margin</div>
+                            <div class="impact-value decreased">₹283,500.00</div>
+                        </div>
+                        
+                        <div class="impact-item">
+                            <div class="impact-label">Margin Decrease</div>
+                            <div class="impact-value decreased">₹166,500.00</div>
+                        </div>
+                        
+                        <div class="impact-item">
+                            <div class="impact-label">Percentage Change</div>
+                            <div class="impact-value decreased">-37.0%</div>
+                        </div>
+                    </div>
+                    
+                    <p style="text-align: center; margin-bottom: 0;">Please ensure that your trading activities align with your revised available margin to avoid any margin shortfalls.</p>
+                </div>
+                
+                <div class="available-actions">
+                    <h3 class="available-actions-title">What You Can Do Now</h3>
+                    
+                    <div class="action-item">
+                        <div class="action-icon">1</div>
+                        <div class="action-content">
+                            <h4 class="action-title">Sell the Securities</h4>
+                            <p>The unpledged securities are now freely available for selling if you wish to do so.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="action-item">
+                        <div class="action-icon">2</div>
+                        <div class="action-content">
+                            <h4 class="action-title">Re-pledge Securities</h4>
+                            <p>If you need margin benefits again, you can re-pledge these or other securities through your trading dashboard.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="action-item">
+                        <div class="action-icon">3</div>
+                        <div class="action-content">
+                            <h4 class="action-title">Add Funds</h4>
+                            <p>To maintain your previous margin levels, you can add funds to your trading account.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="action-item">
+                        <div class="action-icon">4</div>
+                        <div class="action-content">
+                            <h4 class="action-title">Adjust Trading Strategy</h4>
+                            <p>Review your positions and strategy in light of the reduced available margin.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="note-box">
+                    <div class="note-icon">📝</div>
+                    <div class="note-content">
+                        <p style="margin-bottom: 8px;"><strong>Important Note:</strong></p>
+                        <p style="margin-bottom: 0;">The decrease in available margin might affect your trading capacity. If you have active positions requiring substantial margin, please ensure you have sufficient margin to maintain these positions or consider adjusting your exposure.</p>
+                    </div>
+                </div>
+                
+                <div class="cta-container">
+                    <a href="#" class="button">PLEDGE SECURITIES</a>
+                    <a href="#" class="button">VIEW MARGIN DETAILS</a>
+                </div>
+                
+                <p>If you have any questions about your unpledged securities or need assistance with margin-related matters, please contact our support team.</p>
+                
+                <p>Thank you for choosing Sapphire Broking for your investment needs.</p>
+                
+                <p>Best Regards,<br>
+                The Sapphire Broking Team</p>
+            </div>
+            
+            <!-- Footer -->
+            <div class="email-footer">
+                <p><strong>Sapphire Broking</strong><br>
+                123 Financial District, Suite 789<br>
+                Mumbai, Maharashtra 400001<br>
+                Customer Support: +91 XXXX XXX XXX</p>
+                
+                <div class="social-links">
+                    <!-- Placeholder social icons -->
+                    <div class="social-icon">f</div>
+                    <div class="social-icon">t</div>
+                    <div class="social-icon">in</div>
+                    <div class="social-icon">ig</div>
+                </div>
+                
+                <p>© 2025 Sapphire Broking. All Rights Reserved.</p>
+                
+                <div class="disclaimer">
+                    <p>DISCLAIMER: Investments in securities market are subject to market risks. Read all the related documents carefully before investing. Registration granted by SEBI, membership of BSE, NSE, and MCX-SX, and registration of the DP with SEBI does not guarantee quality of services. Details of compliance officer: Name: Compliance Officer, Email: compliance@sapphirebroking.com, Phone: +91 XXXX XXX XXX</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
