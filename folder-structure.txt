@@ -19,8 +19,23 @@
         └── signup_otp.html
         └── login_otp.html
     └── 📁greeting
-        └── signup_otp.html
-        └── login_otp.html
+        └── republic_day.html
+        └── maha_shivratri.html
+        └── holi.html
+        └── good_friday.html
+        └── ram_navami.html
+        └── mahavir_jayanti.html
+        └── ramzan_eid.html
+        └── maharashtra_day.html
+        └── bakri_eid.html
+        └── muharram.html
+        └── independance_day.html
+        └── ganesh_chaturthi.html
+        └── gandhi_jayanti.html
+        └── dussehra.html
+        └── diwali_laxmi_pujan.html
+        └── guru_nanak_jayanti.html
+        └── christmas.html
     └── 📁security and support
         └── 2fa_authentication.html
         └── password_reset.html
