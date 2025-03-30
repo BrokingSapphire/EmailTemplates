@@ -6,7 +6,6 @@
         └── account_rejection.html
         └── account_suspension.html
         └── kyc_submission.html
-        └── 
         └── welcome_email.html
     └── 📁closing
         └── account_closure_request.html
