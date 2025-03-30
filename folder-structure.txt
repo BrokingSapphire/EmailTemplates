@@ -18,6 +18,9 @@
     └── 📁engagement
         └── signup_otp.html
         └── login_otp.html
+    └── 📁greeting
+        └── signup_otp.html
+        └── login_otp.html
     └── 📁security and support
         └── 2fa_authentication.html
         └── password_reset.html
