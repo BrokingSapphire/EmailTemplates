@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="format-detection" content="telephone=no,date=no,address=no,email=no,url=no">
+    <title>Auto Square-Off Notification - Sapphire Broking</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --primary: #064D51;
+            --primary-light: rgba(6, 77, 81, 0.1);
+            --accent: #FFD62D;
+            --accent-light: rgba(255, 214, 45, 0.2);
+            --background: #EAFBF0;
+            --white: #FFFFFF;
+            --text-dark: #1A2B2C;
+            --text-medium: #415657;
+            --text-light: #6E7878;
+            --border-light: #E5E7EB;
+            --success: #16A34A;
+            --success-light: rgba(22, 163, 74, 0.1);
+            --warning: #F59E0B;
+            --warning-light: rgba(245, 158, 11, 0.1);
+            --danger: #DC2626;
+            --danger-light: rgba(220, 38, 38, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background);
+            color: var(--text-dark);
+            line-height: 1.6;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .email-wrapper {
+            background-color: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+        }
+        
+        .email-header {
+            background-color: var(--primary);
+            padding: 30px 40px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .logo {
+            max-width: 150px;
+            height: auto;
+        }
+        
+        .header-accent {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 10% 20%, rgba(255, 214, 45, 0.3) 0%, transparent 30%);
+        }
+        
+        .email-body {
+            padding: 40px;
+        }
+        
+        .email-footer {
+            background-color: var(--primary-light);
+            padding: 30px;
+            text-align: center;
+            font-size: 13px;
+            color: var(--text-medium);
+        }
+        
+        .social-links {
+            margin: 25px 0;
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+        }
+        
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            color: var(--white);
+            transition: all 0.2s ease;
+        }
+        
+        .disclaimer {
+            font-size: 11px;
+            color: var(--text-light);
+            margin-top: 25px;
+            padding-top: 25px;
+            border-top: 1px solid var(--border-light);
+        }
+        
+        .button {
+            display: inline-block;
+            padding: 14px 28px;
+            background-color: var(--primary);
+            color: var(--white) !important;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(6, 77, 81, 0.2);
+        }
+        
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(6, 77, 81, 0.25);
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--primary);
+            margin-bottom: 16px;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+        
+        h1 {
+            font-size: 28px;
+            letter-spacing: -0.5px;
+        }
+        
+        h2 {
+            font-size: 24px;
+            letter-spacing: -0.3px;
+        }
+        
+        h3 {
+            font-size: 20px;
+        }
+        
+        p {
+            margin-bottom: 16px;
+            color: var(--text-medium);
+        }
+        
+        .alert-banner {
+            margin: 0 0 32px 0;
+            position: relative;
+            text-align: center;
+            background-color: var(--warning-light);
+            padding: 24px;
+            border-radius: 12px;
+        }
+        
+        .alert-icon {
+            font-size: 48px;
+            color: var(--warning);
+            margin-bottom: 16px;
+        }
+        
+        .alert-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--warning);
+            margin: 0 0 12px 0;
+            text-align: center;
+        }
+        
+        .alert-subtitle {
+            font-size: 18px;
+            color: var(--text-medium);
+            margin-bottom: 0;
+            text-align: center;
+        }
+        
+        .message-box {
+            background-color: var(--primary-light);
+            border-radius: 12px;
+            padding: 32px;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 32px;
+        }
+        
+        .message-box:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--primary);
+        }
+        
+        .message-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .squareoff-details {
+            background-color: var(--white);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 32px 0;
+            border: 1px solid var(--border-light);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+        }
+        
+        .squareoff-details-title {
+            text-align: center;
+            margin-bottom: 16px;
+            color: var(--primary);
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .detail-row {
+            display: flex;
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border-light);
+        }
+        
+        .detail-row:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .detail-label {
+            flex: 1;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+        
+        .detail-value {
+            flex: 2;
+            text-align: right;
+        }
+        
+        .positions-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 16px;
+        }
+        
+        .positions-table th {
+            text-align: left;
+            padding: 12px;
+            background-color: var(--primary-light);
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 14px;
+        }
+        
+        .positions-table td {
+            padding: 12px;
+            border-bottom: 1px solid var(--border-light);
+            font-size: 14px;
+        }
+        
+        .positions-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .positions-table th:last-child,
+        .positions-table td:last-child {
+            text-align: right;
+        }
+        
+        .profit {
+            color: var(--success);
+            font-weight: 600;
+        }
+        
+        .loss {
+            color: var(--danger);
+            font-weight: 600;
+        }
+        
+        .margin-status {
+            background-color: var(--danger-light);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 32px 0;
+        }
+        
+        .margin-status-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--danger);
+            margin-bottom: 12px;
+            text-align: center;
+        }
+        
+        .margin-status-details {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border-light);
+        }
+        
+        .margin-item {
+            text-align: center;
+        }
+        
+        .margin-label {
+            font-size: 14px;
+            color: var(--text-medium);
+            margin-bottom: 4px;
+        }
+        
+        .margin-value {
+            font-size: 20px;
+            font-weight: 600;
+        }
+        
+        .required-margin {
+            color: var(--danger);
+        }
+        
+        .available-margin {
+            color: var(--text-dark);
+        }
+        
+        .shortfall {
+            color: var(--danger);
+        }
+        
+        .prevention-steps {
+            background-color: var(--white);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 32px 0;
+            border: 1px solid var(--border-light);
+        }
+        
+        .prevention-steps-title {
+            margin-bottom: 16px;
+            color: var(--primary);
+            font-size: 18px;
+            font-weight: 600;
+            text-align: center;
+        }
+        
+        .step-item {
+            display: flex;
+            margin-bottom: 16px;
+        }
+        
+        .step-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .step-number {
+            flex-shrink: 0;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            margin-right: 16px;
+            margin-top: 4px;
+            font-size: 14px;
+        }
+        
+        .step-content {
+            flex-grow: 1;
+        }
+        
+        .step-title {
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 4px;
+        }
+        
+        .step-description {
+            font-size: 14px;
+            color: var(--text-medium);
+        }
+        
+        .support-box {
+            background-color: var(--accent-light);
+            border-radius: 12px;
+            padding: 16px;
+            margin-top: 32px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .support-icon {
+            flex-shrink: 0;
+            margin-right: 12px;
+            font-size: 24px;
+            color: var(--accent);
+        }
+        
+        .support-content {
+            font-size: 14px;
+            color: var(--text-medium);
+        }
+        
+        .cta-container {
+            text-align: center;
+            margin: 32px 0;
+        }
+        
+        /* Mobile Optimization */
+        @media (max-width: 550px) {
+            .email-body {
+                padding: 30px 24px;
+            }
+            
+            .alert-title {
+                font-size: 24px;
+            }
+            
+            h1 {
+                font-size: 24px;
+            }
+            
+            .positions-table {
+                display: block;
+                overflow-x: auto;
+            }
+            
+            .margin-status-details {
+                flex-direction: column;
+                gap: 12px;
+            }
+            
+            .margin-item {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            
+            .margin-value {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="email-wrapper">
+            <!-- Header with Logo -->
+            <div class="email-header">
+                <div class="header-accent"></div>
+                <!-- In production, replace with your actual logo URL -->
+                <img src="/api/placeholder/150/50" alt="Sapphire Broking" class="logo" />
+            </div>
+            
+            <!-- Email Body -->
+            <div class="email-body">
+                <div class="alert-banner">
+                    <div class="alert-icon">⚠️</div>
+                    <h1 class="alert-title">Auto Square-Off Notification</h1>
+                    <p class="alert-subtitle">Your positions have been squared off due to margin shortfall</p>
+                </div>
+                
+                <p>Dear <strong>[Client Name]</strong>,</p>
+                
+                <p>This is to inform you that some of your open positions have been automatically squared off due to insufficient margin in your trading account. This action was taken in accordance with exchange regulations and our risk management policies.</p>
+                
+                <div class="message-box">
+                    <div class="message-content">
+                        <p>As per SEBI guidelines and exchange regulations, we are required to ensure that all clients maintain adequate margins for their open positions at all times. When the available margin falls below the required threshold, we are obligated to reduce exposure by squaring off positions.</p>
+                        
+                        <p style="margin-bottom: 0;">Below are the details of the positions that were squared off and the current status of your margin.</p>
+                    </div>
+                </div>
+                
+                <div class="squareoff-details">
+                    <h3 class="squareoff-details-title">Square-Off Details</h3>
+                    
+                    <div class="detail-row">
+                        <div class="detail-label">Client ID</div>
+                        <div class="detail-value">[Client ID]</div>
+                    </div>
+                    
+                    <div class="detail-row">
+                        <div class="detail-label">Square-Off Date & Time</div>
+                        <div class="detail-value">[Square-Off Date] at [Square-Off Time]</div>
+                    </div>
+                    
+                    <div class="detail-row">
+                        <div class="detail-label">Reason</div>
+                        <div class="detail-value">Margin Shortfall</div>
+                    </div>
+                    
+                    <div class="detail-row">
+                        <div class="detail-label">Square-Off Type</div>
+                        <div class="detail-value">Automated (System Generated)</div>
+                    </div>
+                    
+                    <h4 style="margin-top: 20px;">Squared-Off Positions</h4>
+                    
+                    <table class="positions-table">
+                        <thead>
+                            <tr>
+                                <th>Symbol</th>
+                                <th>Type</th>
+                                <th>Qty</th>
+                                <th>Entry Price</th>
+                                <th>Exit Price</th>
+                                <th>P&L</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>RELIANCE</td>
+                                <td>BUY</td>
+                                <td>10</td>
+                                <td>₹2,450.00</td>
+                                <td>₹2,420.00</td>
+                                <td class="loss">-₹3,000.00</td>
+                            </tr>
+                            <tr>
+                                <td>NIFTY 21APR 22000 CE</td>
+                                <td>SELL</td>
+                                <td>25</td>
+                                <td>₹180.50</td>
+                                <td>₹195.25</td>
+                                <td class="loss">-₹3,687.50</td>
+                            </tr>
+                            <tr>
+                                <td>SBIN</td>
+                                <td>BUY</td>
+                                <td>100</td>
+                                <td>₹620.00</td>
+                                <td>₹625.50</td>
+                                <td class="profit">+₹5,500.00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="margin-status">
+                    <h3 class="margin-status-title">Margin Status at Square-Off Time</h3>
+                    
+                    <div class="margin-status-details">
+                        <div class="margin-item">
+                            <div class="margin-label">Required Margin</div>
+                            <div class="margin-value required-margin">₹1,25,000.00</div>
+                        </div>
+                        
+                        <div class="margin-item">
+                            <div class="margin-label">Available Margin</div>
+                            <div class="margin-value available-margin">₹45,000.00</div>
+                        </div>
+                        
+                        <div class="margin-item">
+                            <div class="margin-label">Margin Shortfall</div>
+                            <div class="margin-value shortfall">₹80,000.00</div>
+                        </div>
+                    </div>
+                    
+                    <p style="text-align: center; margin-bottom: 0; font-size: 14px;">Your available margin was only <strong>36%</strong> of the required margin at the time of square-off.</p>
+                </div>
+                
+                <div class="prevention-steps">
+                    <h3 class="prevention-steps-title">How to Prevent Auto Square-Off in Future</h3>
+                    
+                    <div class="step-item">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4 class="step-title">Monitor Margin Requirements</h4>
+                            <p class="step-description">Regularly check your margin requirements and available balance on your trading dashboard or mobile app.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4 class="step-title">Maintain Adequate Funds</h4>
+                            <p class="step-description">Always maintain a buffer of at least 50% above your required margin to account for market volatility.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4 class="step-title">Set Up Margin Alerts</h4>
+                            <p class="step-description">Configure alerts to notify you when your margin utilization crosses predefined thresholds.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h4 class="step-title">Add Funds Promptly</h4>
+                            <p class="step-description">Use our instant fund transfer facility to quickly add funds to your trading account when needed.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="cta-container">
+                    <a href="#" class="button">ADD FUNDS TO YOUR ACCOUNT</a>
+                </div>
+                
+                <div class="support-box">
+                    <div class="support-icon">💬</div>
+                    <div class="support-content">
+                        <p style="margin-bottom: 8px;"><strong>Need Assistance?</strong></p>
+                        <p style="margin-bottom: 0;">If you have any questions regarding this square-off or need help understanding margin requirements, please contact our risk management team at <strong>risk@sapphirebroking.com</strong> or call <strong>+91 XXXX XXX XXX</strong> (9:00 AM to 6:00 PM, Monday to Friday).</p>
+                    </div>
+                </div>
+                
+                <p style="text-align: center; margin-top: 32px; font-style: italic;">This is an automated system-generated email. Please do not reply to this email.</p>
+            </div>
+            
+            <!-- Footer -->
+            <div class="email-footer">
+                <p><strong>Sapphire Broking</strong><br>
+                123 Financial District, Suite 789<br>
+                Mumbai, Maharashtra 400001<br>
+                Customer Support: +91 XXXX XXX XXX</p>
+                
+                <div class="social-links">
+                    <!-- Placeholder social icons -->
+                    <div class="social-icon">f</div>
+                    <div class="social-icon">t</div>
+                    <div class="social-icon">in</div>
+                    <div class="social-icon">ig</div>
+                </div>
+                
+                <p>© 2025 Sapphire Broking. All Rights Reserved.</p>
+                
+                <div class="disclaimer">
+                    <p>DISCLAIMER: Investments in securities market are subject to market risks. Read all the related documents carefully before investing. Registration granted by SEBI, membership of BSE, NSE, and MCX-SX, and registration of the DP with SEBI does not guarantee quality of services. Details of compliance officer: Name: Compliance Officer, Email: compliance@sapphirebroking.com, Phone: +91 XXXX XXX XXX</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
