@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="format-detection" content="telephone=no,date=no,address=no,email=no,url=no">
+    <title>Margin Statement - Sapphire Broking</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --primary: #064D51;
+            --primary-light: rgba(6, 77, 81, 0.1);
+            --accent: #FFD62D;
+            --accent-light: rgba(255, 214, 45, 0.2);
+            --background: #EAFBF0;
+            --white: #FFFFFF;
+            --text-dark: #1A2B2C;
+            --text-medium: #415657;
+            --text-light: #6E7878;
+            --border-light: #E5E7EB;
+            --success: #16A34A;
+            --success-light: rgba(22, 163, 74, 0.1);
+            --warning: #F59E0B;
+            --warning-light: rgba(245, 158, 11, 0.1);
+            --danger: #DC2626;
+            --danger-light: rgba(220, 38, 38, 0.1);
+            --info: #0EA5E9;
+            --info-light: rgba(14, 165, 233, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background);
+            color: var(--text-dark);
+            line-height: 1.6;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .email-wrapper {
+            background-color: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+        }
+        
+        .email-header {
+            background-color: var(--primary);
+            padding: 30px 40px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .logo {
+            max-width: 150px;
+            height: auto;
+        }
+        
+        .header-accent {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 10% 20%, rgba(255, 214, 45, 0.3) 0%, transparent 30%);
+        }
+        
+        .email-body {
+            padding: 40px;
+        }
+        
+        .email-footer {
+            background-color: var(--primary-light);
+            padding: 30px;
+            text-align: center;
+            font-size: 13px;
+            color: var(--text-medium);
+        }
+        
+        .social-links {
+            margin: 25px 0;
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+        }
+        
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            color: var(--white);
+            transition: all 0.2s ease;
+        }
+        
+        .disclaimer {
+            font-size: 11px;
+            color: var(--text-light);
+            margin-top: 25px;
+            padding-top: 25px;
+            border-top: 1px solid var(--border-light);
+        }
+        
+        .button {
+            display: inline-block;
+            padding: 14px 28px;
+            background-color: var(--primary);
+            color: var(--white) !important;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(6, 77, 81, 0.2);
+        }
+        
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(6, 77, 81, 0.25);
+        }
+        
+        .button-secondary {
+            background-color: var(--text-medium);
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--primary);
+            margin-bottom: 16px;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+        
+        h1 {
+            font-size: 28px;
+            letter-spacing: -0.5px;
+        }
+        
+        h2 {
+            font-size: 24px;
+            letter-spacing: -0.3px;
+        }
+        
+        h3 {
+            font-size: 20px;
+        }
+        
+        p {
+            margin-bottom: 16px;
+            color: var(--text-medium);
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+        
+        .section-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+        
+        .section-subtitle {
+            font-size: 16px;
+            color: var(--text-medium);
+        }
+        
+        .statement-date {
+            background-color: var(--primary-light);
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+            margin-bottom: 32px;
+        }
+        
+        .date-label {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+        
+        .date-value {
+            font-size: 18px;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+        
+        .client-details {
+            background-color: var(--white);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 32px 0;
+            border: 1px solid var(--border-light);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+        }
+        
+        .client-details-title {
+            margin-bottom: 16px;
+            color: var(--primary);
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .detail-row {
+            display: flex;
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border-light);
+        }
+        
+        .detail-row:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .detail-label {
+            flex: 1;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+        
+        .detail-value {
+            flex: 2;
+            text-align: right;
+        }
+        
+        .margin-summary {
+            background-color: var(--primary-light);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 32px 0;
+        }
+        
+        .margin-summary-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 16px;
+            text-align: center;
+        }
+        
+        .margin-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+        
+        .margin-item {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 16px;
+            text-align: center;
+        }
+        
+        .margin-label {
+            font-size: 14px;
+            color: var(--text-medium);
+            margin-bottom: 8px;
+        }
+        
+        .margin-value {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+        
+        .margin-value.normal {
+            color: var(--primary);
+        }
+        
+        .margin-value.good {
+            color: var(--success);
+        }
+        
+        .margin-value.warning {
+            color: var(--warning);
+        }
+        
+        .margin-value.danger {
+            color: var(--danger);
+        }
+        
+        .utilization-bar {
+            width: 100%;
+            height: 8px;
+            background-color: var(--border-light);
+            border-radius: 4px;
+            margin-top: 12px;
+            overflow: hidden;
+        }
+        
+        .utilization-fill {
+            height: 100%;
+            background-color: var(--primary);
+            border-radius: 4px;
+        }
+        
+        .utilization-fill.good {
+            background-color: var(--success);
+        }
+        
+        .utilization-fill.warning {
+            background-color: var(--warning);
+        }
+        
+        .utilization-fill.danger {
+            background-color: var(--danger);
+        }
+        
+        .positions-section {
+            margin: 32px 0;
+        }
+        
+        .positions-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 16px;
+        }
+        
+        .positions-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 16px;
+        }
+        
+        .positions-table th {
+            background-color: var(--primary-light);
+            color: var(--primary);
+            font-weight: 600;
+            text-align: left;
+            padding: 12px;
+            font-size: 14px;
+        }
+        
+        .positions-table td {
+            padding: 12px;
+            border-bottom: 1px solid var(--border-light);
+            font-size: 14px;
+        }
+        
+        .positions-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .table-note {
+            font-size: 14px;
+            color: var(--text-light);
+            text-align: center;
+            margin-top: 12px;
+            font-style: italic;
+        }
+        
+        .margin-alert {
+            background-color: var(--warning-light);
+            border-radius: 12px;
+            padding: 16px;
+            margin-top: 32px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .margin-alert.critical {
+            background-color: var(--danger-light);
+        }
+        
+        .alert-icon {
+            flex-shrink: 0;
+            margin-right: 12px;
+            font-size: 24px;
+            color: var(--warning);
+        }
+        
+        .margin-alert.critical .alert-icon {
+            color: var(--danger);
+        }
+        
+        .alert-content {
+            font-size: 14px;
+            color: var(--text-medium);
+        }
+        
+        .margin-tips {
+            background-color: var(--info-light);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 32px 0;
+        }
+        
+        .margin-tips-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 16px;
+            text-align: center;
+        }
+        
+        .tip-item {
+            display: flex;
+            margin-bottom: 16px;
+        }
+        
+        .tip-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .tip-icon {
+            flex-shrink: 0;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background-color: var(--info);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 16px;
+            margin-top: 4px;
+            font-size: 12px;
+        }
+        
+        .tip-content {
+            flex-grow: 1;
+        }
+        
+        .cta-container {
+            text-align: center;
+            margin: 32px 0;
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+        }
+        
+        /* Mobile Optimization */
+        @media (max-width: 550px) {
+            .email-body {
+                padding: 30px 24px;
+            }
+            
+            .section-title {
+                font-size: 24px;
+            }
+            
+            .margin-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .positions-table {
+                display: block;
+                overflow-x: auto;
+            }
+            
+            .cta-container {
+                flex-direction: column;
+            }
+            
+            h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="email-wrapper">
+            <!-- Header with Logo -->
+            <div class="email-header">
+                <div class="header-accent"></div>
+                <!-- In production, replace with your actual logo URL -->
+                <img src="/api/placeholder/150/50" alt="Sapphire Broking" class="logo" />
+            </div>
+            
+            <!-- Email Body -->
+            <div class="email-body">
+                <div class="section-header">
+                    <h1 class="section-title">Margin Statement</h1>
+                    <p class="section-subtitle">Daily Margin Report</p>
+                </div>
+                
+                <div class="statement-date">
+                    <div class="date-label">Report Date</div>
+                    <div class="date-value">March 30, 2025 as of 09:30 AM</div>
+                </div>
+                
+                <p>Dear <strong>Valued Investor</strong>,</p>
+                
+                <p>Please find your daily margin statement below. This statement provides an overview of your margin utilization, available funds, and open positions that require margin.</p>
+                
+                <div class="client-details">
+                    <h3 class="client-details-title">Client Information</h3>
+                    
+                    <div class="detail-row">
+                        <div class="detail-label">Client ID</div>
+                        <div class="detail-value">SB123456</div>
+                    </div>
+                    
+                    <div class="detail-row">
+                        <div class="detail-label">Trading Segment</div>
+                        <div class="detail-value">Equity, F&O</div>
+                    </div>
+                    
+                    <div class="detail-row">
+                        <div class="detail-label">Account Type</div>
+                        <div class="detail-value">Margin Trading</div>
+                    </div>
+                </div>
+                
+                <div class="margin-summary">
+                    <h3 class="margin-summary-title">Margin Summary</h3>
+                    
+                    <div class="margin-grid">
+                        <div class="margin-item">
+                            <div class="margin-label">Total Margin Required</div>
+                            <div class="margin-value normal">₹1,69,500</div>
+                        </div>
+                        
+                        <div class="margin-item">
+                            <div class="margin-label">Available Margin</div>
+                            <div class="margin-value good">₹2,25,000</div>
+                        </div>
+                        
+                        <div class="margin-item">
+                            <div class="margin-label">Margin Utilized</div>
+                            <div class="margin-value warning">₹1,69,500</div>
+                            <div class="utilization-bar">
+                                <div class="utilization-fill warning" style="width: 75%;"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="margin-item">
+                            <div class="margin-label">Margin Surplus/Deficit</div>
+                            <div class="margin-value good">₹55,500</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="positions-section">
+                    <h3 class="positions-title">Open Positions Requiring Margin</h3>
+                    
+                    <table class="positions-table">
+                        <thead>
+                            <tr>
+                                <th>Symbol</th>
+                                <th>Type</th>
+                                <th>Qty</th>
+                                <th>Price</th>
+                                <th>Margin Req. (₹)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- All positions properly included in tbody -->
+                            <tr>
+                                <td>RELIANCE</td>
+                                <td>Long</td>
+                                <td>10</td>
+                                <td>₹2,450.00</td>
+                                <td>24,500.00</td>
+                            </tr>
+                            <tr>
+                                <td>NIFTY 21APR 22000 CE</td>
+                                <td>Short</td>
+                                <td>25</td>
+                                <td>₹180.50</td>
+                                <td>90,250.00</td>
+                            </tr>
+                            <tr>
+                                <td>SBIN</td>
+                                <td>Long</td>
+                                <td>100</td>
+                                <td>₹620.00</td>
+                                <td>31,000.00</td>
+                            </tr>
+                            <tr>
+                                <td>ICICIBANK</td>
+                                <td>Long</td>
+                                <td>50</td>
+                                <td>₹950.00</td>
+                                <td>23,750.00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <p class="table-note">This table shows your top positions by margin requirement. For a complete list, please refer to the attached PDF or your trading dashboard.</p>
+                </div>
+                
+                <div class="margin-alert">
+                    <div class="alert-icon">⚠️</div>
+                    <div class="alert-content">
+                        <p style="margin-bottom: 8px;"><strong>Margin Alert:</strong></p>
+                        <p style="margin-bottom: 0;">Your margin utilization is currently at 75%. To avoid any potential squared-off positions, we recommend maintaining a minimum buffer of 30% above your required margin.</p>
+                    </div>
+                </div>
+                
+                <div class="margin-tips">
+                    <h3 class="margin-tips-title">Tips for Effective Margin Management</h3>
+                    
+                    <div class="tip-item">
+                        <div class="tip-icon">1</div>
+                        <div class="tip-content">
+                            <p><strong>Maintain Adequate Buffer:</strong> Always keep at least 30-40% additional margin as a safety net to account for market volatility.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="tip-item">
+                        <div class="tip-icon">2</div>
+                        <div class="tip-content">
+                            <p><strong>Set Up Margin Alerts:</strong> Configure alerts in your trading dashboard to notify you when your margin utilization crosses predefined thresholds.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="tip-item">
+                        <div class="tip-icon">3</div>
+                        <div class="tip-content">
+                            <p><strong>Diversify Positions:</strong> Spreading your positions across different segments and securities can help optimize margin requirements.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="tip-item">
+                        <div class="tip-icon">4</div>
+                        <div class="tip-content">
+                            <p><strong>Regular Monitoring:</strong> Check your margin statements daily to stay informed about your margin utilization.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="cta-container">
+                    <a href="#" class="button">ADD FUNDS</a>
+                    <a href="#" class="button button-secondary">VIEW DETAILED STATEMENT</a>
+                </div>
+                
+                <p>For a comprehensive view of your margin requirements and position-wise breakdowns, please log in to your trading dashboard or refer to the attached PDF statement.</p>
+                
+                <p>If you have any questions or concerns regarding your margin statement, please feel free to contact our support team.</p>
+                
+                <p>Best Regards,<br>
+                Risk Management Team<br>
+                Sapphire Broking</p>
+            </div>
+            
+            <!-- Footer -->
+            <div class="email-footer">
+                <p><strong>Sapphire Broking</strong><br>
+                123 Financial District, Suite 789<br>
+                Mumbai, Maharashtra 400001<br>
+                Customer Support: +91 XXXX XXX XXX</p>
+                
+                <div class="social-links">
+                    <!-- Placeholder social icons -->
+                    <div class="social-icon">f</div>
+                    <div class="social-icon">t</div>
+                    <div class="social-icon">in</div>
+                    <div class="social-icon">ig</div>
+                </div>
+                
+                <p>© 2025 Sapphire Broking. All Rights Reserved.</p>
+                
+                <div class="disclaimer">
+                    <p>DISCLAIMER: Investments in securities market are subject to market risks. Read all the related documents carefully before investing. Registration granted by SEBI, membership of BSE, NSE, and MCX-SX, and registration of the DP with SEBI does not guarantee quality of services. Details of compliance officer: Name: Compliance Officer, Email: compliance@sapphirebroking.com, Phone: +91 XXXX XXX XXX</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
